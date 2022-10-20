@@ -1,0 +1,157 @@
+policykit-desktop-privileges (0.21-hamonikr1) taebaek; urgency=medium
+
+  * Release for HamoniKR 6.0
+   - Fork from upstream
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 20 Oct 2022 21:42:21 +0900
+
+policykit-desktop-privileges (0.21) eoan; urgency=medium
+
+  * Don't allow usb-creator to overwrite devices without authentication.
+    (LP: #1832337)
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 18 Jun 2019 13:56:08 -0400
+
+policykit-desktop-privileges (0.20) xenial; urgency=medium
+
+  * Copy the gnome-control-center hostnamed/localed actions, that's a more
+    logical place to have those and avoid depending on GNOME components from
+    other desktops environments (lp: #1512435)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 02 Nov 2015 19:34:05 +0100
+
+policykit-desktop-privileges (0.19) utopic; urgency=medium
+
+  * Really disable hibernating in logind - some other PK actions now imply
+    org.freedesktop.login1.hibernate so we need to disable those too.
+  * Bump S-V to 3.9.6.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 25 Sep 2014 10:37:41 +0100
+
+policykit-desktop-privileges (0.18) utopic; urgency=medium
+
+  * Add support for MATE desktop CPU freq selector and date/time mechanism.
+    (LP: #1356326)
+
+ -- Martin Wimpress <code@flexion.org>  Thu, 11 Sep 2014 09:05:21 +0200
+
+policykit-desktop-privileges (0.17) trusty; urgency=medium
+
+  * List the new unity-control-center action as well
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 17 Feb 2014 17:30:41 +0100
+
+policykit-desktop-privileges (0.16) saucy; urgency=low
+
+  * Allow administrators to change the error reporting settings without
+    further authentication.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Fri, 04 Oct 2013 13:05:56 +0100
+
+policykit-desktop-privileges (0.15) saucy; urgency=low
+
+  * Add the timedated actions implied by gnome-control-center directly.
+    We don't install gnome-control-center on phone/tablet images yet want the
+    equivalent authorisations to control timedated.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 26 Sep 2013 16:41:19 +0000
+
+policykit-desktop-privileges (0.14) raring; urgency=low
+
+  * Disable hibernate by default in logind as well.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 04 Apr 2013 05:47:23 +0200
+
+policykit-desktop-privileges (0.13) raring; urgency=low
+
+  * debian/control: breaks on old gnome-settings-daemon version.
+
+  [ Ryan Lortie ]
+  * Change the authorisation name for datetime control functions since we are
+    no longer carrying the mechanism in gnome-settings-daemon. (lp: #1153567)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 26 Mar 2013 21:35:18 +0100
+
+policykit-desktop-privileges (0.12) quantal; urgency=low
+
+  * Allow local admins to unlock encrypted system drives with udisks2.
+    (LP: #1007149)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 13 Jun 2012 06:43:17 +0200
+
+policykit-desktop-privileges (0.11) quantal; urgency=low
+
+  * Allow local admins to mount system drives with udisks2. (LP: #1005643)
+  * debian/copyright: Move to copyright format 1.0, and update copyright.
+  * debian/control: Bump Standards-Version to 3.9.3.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 29 May 2012 17:21:36 +0200
+
+policykit-desktop-privileges (0.10) precise; urgency=low
+
+  * Group "sudo" is the new "admin", allow both. (LP: #893842)
+  * debian/control: Fix overly long line.
+  * debian/control: Add recently added privileges to description.
+  * debian/control: Bump Standards-Version to 3.9.2, no changes necessary.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 25 Nov 2011 08:03:49 +0100
+
+policykit-desktop-privileges (0.9) precise; urgency=low
+
+  * Allow members of "lpadmin" or "admin" to call the cups-pk-helper methods
+    without a password. cups itself only checks for lpadmin membership, so
+    this provides an equivalency. (LP: #847896)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 09 Nov 2011 12:55:57 +0100
+
+policykit-desktop-privileges (0.8) precise; urgency=low
+
+  * Disable hibernation by default. (LP: #812394)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 20 Oct 2011 11:49:35 +0200
+
+policykit-desktop-privileges (0.7) oneiric; urgency=low
+
+  * Allow local admins to do the less harmful usb-creator actions (mounting
+    and writing image) without a password.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 06 Jul 2011 10:12:36 +0200
+
+policykit-desktop-privileges (0.6) oneiric; urgency=low
+
+  * Allow local admins to update already installed software without password.
+  * Update passwordless time zone configuration to GNOME 3.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 30 Jun 2011 16:43:39 +0100
+
+policykit-desktop-privileges (0.5) oneiric; urgency=low
+
+  * Allow local admins to create and edit system-wide NetworkManager
+    connections.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 29 Jun 2011 18:38:15 +0100
+
+policykit-desktop-privileges (0.4) natty; urgency=low
+
+  * Re-enable hibernation by default. It can be disabled by dropping a file
+    into /etc/polkit-1/localauthority/ by OEMs if desired. (LP: #710796)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 25 Feb 2011 12:16:02 +0100
+
+policykit-desktop-privileges (0.3) natty; urgency=low
+
+  * Disable hibernation by default. It's very slow, and reportedly unreliable.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 25 Jan 2011 11:40:59 +0100
+
+policykit-desktop-privileges (0.2) maverick; urgency=low
+
+  * Add support for setting the clock in KDE as well
+
+ -- Jonathan Thomas <echidnaman@kubuntu.org>  Mon, 19 Jul 2010 11:06:04 -0400
+
+policykit-desktop-privileges (0.1) lucid; urgency=low
+
+  * Initial release. (LP: #455694)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 17 Mar 2010 09:50:07 +0100
